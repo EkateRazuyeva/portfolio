@@ -9,7 +9,7 @@ export default function Home() {
             <div className="container mx-auto h-full">
                 <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
                     <div className="text-center xl:text-left order-2 xl:order-none mt-6">
-                        <span className="text-center xl:text-left">Software Developer</span>
+                        <span className="text-center xl:text-left">Front-End Developer</span>
                         <h1 className={"h1 mb-6"}>
                             Hello I&#39;m <br/><span className="text-accent">Ekaterina Razuyeva</span>
                         </h1>
@@ -22,12 +22,12 @@ export default function Home() {
                                     size="lg"
                                     className="uppercase flex items-center gap-8"
                             >
-                                <span> Download CV</span>
-                                <FiDownload className="text-xl"/>
+                                <span className="text-[17px]"> Download CV</span>
+                                <FiDownload className="text-2xl"/>
                             </Button>
                             <div className="mb-8 xl-mb-8 ">
                                 <Social containerStyles="flex gap-10"
-                                        iconStyles="w-9 h-9 border border-accent rounded-full
+                                        iconStyles="w-14 h-14  border border-accent rounded-full
                                         flex justify-center items-center text-accent text-base
                                         hover:bg-accent hover:text-primary
                                         hover:transition-all duration-500"/>

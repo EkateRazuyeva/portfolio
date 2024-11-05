@@ -54,7 +54,7 @@ const Contact = () => {
                             <Textarea className="h-[200px]"
                                       placeholder="Type your message here..."
                             />
-                            <Button size="md" className="max-w-40">Send message</Button>
+                            <Button size="md" className="max-w-40 text-white/90">Send message</Button>
                         </form>
                     </div>
                     <div className="flex-1 flex items-center xl:justify-end
