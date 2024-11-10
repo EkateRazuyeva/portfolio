@@ -1,7 +1,7 @@
 "use client"
 
-import {FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs} from "react-icons/fa";
-import {SiTailwindcss, SiNextdotjs} from "react-icons/si";
+import {FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaSass} from "react-icons/fa";
+import {SiTailwindcss, SiNextdotjs, SiStorybook, SiTypescript, SiRadixui, SiRedux} from "react-icons/si";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import {ScrollArea} from "@/components/ui/scroll-area";
@@ -9,12 +9,15 @@ import {motion} from "framer-motion";
 
 const about = {
     title: "About me",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-        "Mauris fringilla nibh vitae mauris viverra convallis.",
+    description: "Я — начинающая разработчица, прошла обучение в IT-incubator, где изучала основы программирования и веб-разработки. Мой путь в IT начался с того, что я захотела работать в сфере, где всегда есть новые вызовы и возможности для роста. До этого я работала в государственной энергетической отрасли, где научилась высокой ответственности и умению работать в условиях многозадачности. Однако со временем я почувствовала, что мне не хватает динамики и развития. Я решила перейти в IT, чтобы постоянно учиться и развиваться. Сейчас создаю небольшие проекты и радуюсь каждому новому шагу в своей трансформации. Ищу первую работу в IT, где смогу применить свои знания, работать в команде и расти профессионально.",
     info: [
         {
             fieldName: "Name",
-            fieldValue: "Ekaterina Razuyeva"
+            fieldValue: "Ekaterina"
+        },
+        {
+            fieldName: "Lastname",
+            fieldValue: "Razuyeva"
         },
         {
             fieldName: "Phone",
@@ -25,63 +28,12 @@ const about = {
             fieldValue: "0+"
         },
         {
-            fieldName: "Skype",
-            fieldValue: "Ekate"
-        },
-        {
-            fieldName: "Nationality",
-            fieldValue: "Belarusian"
+            fieldName: "Languages",
+            fieldValue: "English (B1), Spanish (C1) "
         },
         {
             fieldName: "Email",
-            fieldValue: "25ky-ky08@mail.ru"
-        },
-        {
-            fieldName: "Freelance",
-            fieldValue: "Available"
-        },
-        {
-            fieldName: "Languages",
-            fieldValue: "English, Spanish"
-        },
-    ]
-}
-
-const experience = {
-    icon: '/assets/resume/badge.svg',
-    title: 'My experience',
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-        "Mauris fringilla nibh vitae mauris viverra convallis.",
-    items: [
-        {
-            company: "Tech Solutions Inc.",
-            position: "Full Stack Developer",
-            duration: "2022 -Present"
-        },
-        {
-            company: "Web Design studio",
-            position: "Front-End",
-            duration: "Summer 2021"
-        },
-        {
-            company: "E-commerce Startup",
-            position: "Freelance Developer",
-            duration: "2022 -Present"
-        },
-        {
-            company: "Tech Academy",
-            position: "Freelance Developer",
-            duration: "2020-2021"
-        },
-        {
-            company: "Tech Academy",
-            position: "Freelance Developer",
-            duration: "2020-2021"
-        },
-        {
-            company: "Tech Academy",
-            position: "Freelance Developer",
-            duration: "2020-2021"
+            fieldValue: "25ekatemars08@gmail.com"
         },
 
     ]
@@ -90,17 +42,21 @@ const experience = {
 const education = {
     icon: '/assets/resume/cap.svg',
     title: 'My education',
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-        "Mauris fringilla nibh vitae mauris viverra convallis.",
+    description: "Образование — это основа для профессионального роста, и я всегда стремлюсь развивать свои навыки в области веб-разработки. Я прошла обучение в нескольких учебных заведениях и программах, которые помогли мне освоить необходимые для Front-End разработки технологии.",
     items: [
         {
-            institution: "BNTU",
-            degree: "economic-engineer",
+            institution: "БНТУ",
+            degree: "экономист-энергетик",
             duration: "2015-2020"
         },
         {
+            institution: "IT-Academy",
+            degree: "Разработка веб-сайтов (HTML, CSS и JS)",
+            duration: "2022"
+        },
+        {
             institution: "IT_INCUBATOR",
-            degree: "front-end developer",
+            degree: "Обучение Frontend-разработке",
             duration: "2023 - present"
         },
 
@@ -110,8 +66,7 @@ const education = {
 
 const skills = {
     title: "My skills",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-        "Mauris fringilla nibh vitae mauris viverra convallis.",
+    description: "Я активно развиваю свои навыки в области Front-End разработки, постоянно осваиваю новые подходы и методы, чтобы создавать чистый, функциональный и удобный код, который будет отвечать современным требованиям веб-разработки.",
     skillList: [
         {
             icon: <FaHtml5/>,
@@ -142,8 +97,24 @@ const skills = {
             name: "node.js",
         },
         {
-            icon: <FaFigma/>,
-            name: "figma",
+            icon: <SiStorybook/>,
+            name: "Storybook",
+        },
+        {
+            icon: <SiTypescript/>,
+            name: "Typescript",
+        },
+        {
+            icon: <SiRadixui/>,
+            name: "Radixui",
+        },
+        {
+            icon: <FaSass/>,
+            name: "Sass",
+        },
+        {
+            icon: <SiRedux/>,
+            name: "Redux",
         },
     ]
 }
@@ -160,48 +131,18 @@ const Resume = () => {
     >
 
         <div className="container mx-auto">
-            <Tabs defaultValue="experience"
+            <Tabs defaultValue="education"
                   className="flex flex-col xl:flex-row gap-[60px]">
                 <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-                    <TabsTrigger value="experience">Experience</TabsTrigger>
                     <TabsTrigger value="education">Education</TabsTrigger>
                     <TabsTrigger value="skills">Skills</TabsTrigger>
                     <TabsTrigger value="about">About me</TabsTrigger>
                 </TabsList>
                 <div className="min-h-[70vh] w-full">
-                    <TabsContent value="experience" className="w-full">
-                        <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                            <h3 className="text-4xl font-bold">{experience.title}</h3>
-                            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{experience.description}</p>
-                            <ScrollArea className="h-[400px]">
-                                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                                    {experience.items.map((item, index) => {
-                                        return (
-                                            <li key={index}
-                                                className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col
-                                                justify-center items-center lg:items-start gap-1"
-                                            >
-                                                <span className="text-accent">{item.duration}</span>
-                                                <h3 className="text-xl max-w-[260px] min-h-[60px]
-                                                text-center lg:text-left">
-                                                    {item.position}
-                                                </h3>
-                                                <div className="flex items-center gap-3">
-                                                    <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                                    <p className="text-white/60">{item.company}</p>
-                                                </div>
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
-                            </ScrollArea>
-                        </div>
-                    </TabsContent>
-
                     <TabsContent value="education" className="w-full">
                         <div className="flex flex-col gap-[30px] text-center xl:text-left">
                             <h3 className="text-4xl font-bold">{education.title}</h3>
-                            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                            <p className="w-full max-w-[680px] text-white/60 mx-auto xl:mx-0 text-justify">
                                 {education.description}
                             </p>
                             <ScrollArea className="h-[400px]">
@@ -219,7 +160,7 @@ const Resume = () => {
                                                 </h3>
                                                 <div className="flex items-center gap-3">
                                                     <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                                    <p className="text-white/60">{item.institution}</p>
+                                                    <p className="text-[18px] text-white/60">{item.institution}</p>
                                                 </div>
                                             </li>
                                         )
@@ -233,7 +174,7 @@ const Resume = () => {
                         <div className="flex flex-col gap-[30px]">
                             <div className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">{skills.title}</h3>
-                                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                                <p className="w-full max-w-[680px] text-white/60 mx-auto xl:mx-0 text-justify">
                                     {skills.description}
                                 </p>
                             </div>
@@ -263,12 +204,12 @@ const Resume = () => {
                     <TabsContent value="about" className="w-full text-center xl:text-left">
                         <div className="flex flex-col gap-[30px]">
                             <h3 className="text-4xl font-bold">{about.title}</h3>
-                            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
+                            <p className="w-full max-w-[680px] text-white/60 mx-auto xl:mx-0 text-justify">{about.description}</p>
                             <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
                                 {about.info.map((item, index) => {
                                     return (
                                         <li key={index}
-                                        className="flex items-center justify-center xl:justify-start gap-4"
+                                            className="flex items-center justify-center xl:justify-start gap-4"
                                         >
                                             <span className="text-white/60">{item.fieldName}</span>
                                             <span className="text-xl">{item.fieldValue}</span>

@@ -16,47 +16,40 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
     {
         num: '01',
-        category: 'frontend',
-        title: 'project 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-            'Mauris fringilla nibh vitae mauris viverra convallis.',
-        stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
-        image: '/assets/work/thumb1.png',
-        live: '',
-        github: '',
+        title: 'Конвертер валюты',
+        description: '— это веб-приложение, предназначенное для простого и удобного обмена одной валюты на другую. Пользователи могут легко вводить сумму, выбирать исходную и целевую валюту, и мгновенно получать результаты обмена. Приложение использует актуальные данные о курсах валют, чтобы обеспечить надежные и точные конверсии.',
+        stack: [{name: "HTML"}, {name: "Javascript"}, {name: "SCSS"}],
+        image: '/assets/work/converter.png',
+        live: 'https://ekaterazuyeva.github.io/currency-converter/',
+        github: 'https://github.com/EkateRazuyeva/currency-converter',
     },
     {
         num: '02',
-        category: 'frontend',
-        title: 'project 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-            'Mauris fringilla nibh vitae mauris viverra convallis.',
-        stack: [{name: "Next.js"}, {name: "Tailwind"}, {name: "Javascript"}],
-        image: '/assets/work/thumb2.png',
+        title: 'ToDo List',
+        description: '— это удобное веб-приложение, которое помогает пользователям управлять своими задачами и делами. С помощью этого инструмента пользователи могут легко добавлять, редактировать и удалять задачи, а также отмечать их как выполненные. Приложение ориентировано на повышение продуктивности и упрощение планирования повседневных задач.',
+        stack: [{name: "HTML"}, {name: "Css"}, {name: "TypeScript"}, {name: "React"}, {name: "Material UI"}, {name: "Redux ToolKit"}],
+        image: '/assets/work/thumb1.png',
         live: '',
-        github: '',
+        github: 'https://github.com/EkateRazuyeva/todoList',
     },
     {
         num: '03',
-        category: 'frontend',
-        title: 'project 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-            'Mauris fringilla nibh vitae mauris viverra convallis.',
-        stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
-        image: '/assets/work/thumb3.png',
-        live: '',
-        github: '',
+        title: 'Онлайн-магазин кроссовок',
+        description: '— это удобная веб-платформа, позволяющая пользователям просматривать, выбирать и приобретать широкий ассортимент кроссовок для различных стилей и потребностей. Сайт предлагает пользователь-friendly интерфейс, который делает процесс покупки простым и приятным.',
+        stack: [{name: "HTML"}, {name: "SCSS"}, {name: "React"}, {name: "Javascript"}],
+        image: '/assets/work/sneackers.png',
+        live: 'https://ekaterazuyeva.github.io/react-sneakes/',
+        github: 'https://github.com/EkateRazuyeva/react-sneakes',
     },
     {
         num: '04',
-        category: 'frontend',
-        title: 'project 4',
+        title: 'Portfolio',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
             'Mauris fringilla nibh vitae mauris viverra convallis.',
         stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
         image: '/assets/work/thumb1.png',
         live: '',
-        github: '',
+        github: 'https://github.com/EkateRazuyeva/portfolio',
     },
 ]
 
@@ -87,12 +80,11 @@ const Work = () => {
                                 {project.num}
                             </div>
                             <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent
-                            transition-all duration-500 capitalize">
-                                {project.category}
+                            transition-all duration-500">
+                                {project.title}
                             </h2>
-                            <p className="text-white/60">{project.description}</p>
-
-                            <ul className="flex gap-4">
+                            <p className="w-full text-white/60 text-justify">{project.description}</p>
+                            <ul className="flex flex-wrap gap-2 ">
                                 {project.stack.map((item, index) => {
                                     return (
                                         <li key={index} className="text-xl text-accent">
@@ -102,11 +94,10 @@ const Work = () => {
                                     )
                                 })}
                             </ul>
-
                             <div className="border border-white/20"></div>
 
                             <div className="flex items-center gap-4">
-                                <Link href={project.live}>
+                                <Link href={project.live} target="_blank" rel="noopener noreferrer">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
                                             <TooltipTrigger className="w-[70px] h-[70px] rounded-full
@@ -120,7 +111,7 @@ const Work = () => {
                                         </Tooltip>
                                     </TooltipProvider>
                                 </Link>
-                                <Link href={project.github}>
+                                <Link href={project.github} target="_blank" rel="noopener noreferrer">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
                                             <TooltipTrigger className="w-[70px] h-[70px] rounded-full
@@ -154,7 +145,7 @@ const Work = () => {
                                                 <Image src={project.image}
                                                        alt=""
                                                        fill
-                                                       className="object-cover"
+                                                       className="w-1/2 p-1"
                                                 />
                                             </div>
                                         </div>

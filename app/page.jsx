@@ -13,9 +13,10 @@ export default function Home() {
                         <h1 className={"h1 mb-6"}>
                             Hello I&#39;m <br/><span className="text-accent">Ekaterina Razuyeva</span>
                         </h1>
-                        <p className="max-w-[500px] mb-9 text-white/80">
-                            I have a knack for creating user-friendly digital interfaces and I am familiar with various
-                            programming languages and technologies in frontend development.
+                        <p className="w-full max-w-[490px] mb-9 text-white/80 text-justify">
+                            Мой путь в IT только начинается, и я ищу возможности, чтобы работать в команде
+                            и расти профессионально. Меня вдохновляет создание удобных, красивых и функциональных
+                            интерфейсов, и я уверена, что смогу внести свой вклад в интересные проекты.
                         </p>
                         <div className="flex flex-col xl:items-start items-center gap-8">
                             <Button variant="outline"
