@@ -6,26 +6,69 @@ import {Textarea} from "@/components/ui/textarea"
 
 import {FaPhoneAlt, FaEnvelope, FaMapMarkedAlt} from "react-icons/fa";
 import {motion} from "framer-motion";
+import {useState} from "react";
 
 const info = [
     {
         icon: <FaPhoneAlt/>,
-        title: "Phone",
+        title: "Телефон",
         description: "+375-33-610-39-69"
     },
     {
         icon: <FaEnvelope/>,
-        title: "Email",
+        title: "Почта",
         description: "25ekatemars08@gmail.com"
     },
     {
         icon: <FaMapMarkedAlt/>,
-        title: "Address",
-        description: "Minsk, Belarus"
+        title: "Адрес",
+        description: "Минск, Беларусь"
     },
 ]
 
 const Contact = () => {
+
+    const [formData, setFormData] = useState({
+        name: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const [status, setStatus] = useState("");
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("Отправка...");
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                setFormData({name: "", email: "", message: "", lastName: "", phone: ""});
+                setStatus("Сообщение успешно отправлено!");
+            } else {
+                setStatus("Ошибка при отправке сообщения.");
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus("Ошибка: не удалось отправить сообщение.");
+        }
+    };
+
+
     return (
         <motion.section
             initial={{opacity: 0}}
@@ -38,23 +81,32 @@ const Contact = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     <div className="xl:w-[54%] order-2 xl:order-none">
-                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-4xl text-accent">Let&#39;s work together</h3>
-                            <p className="text-white/60">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fringilla nibh vitae
-                                mauris viverra convallis.
-                            </p>
+                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl" onClick={handleSubmit}>
+                            <h3 className="text-4xl text-accent mb-4">Давайте работать вместе</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <Input type="firstname" placeholder="First Name"
-                                       className="focus:border-accent border-2"/>
-                                <Input type="lastname" placeholder="Last Name"/>
-                                <Input type="email" placeholder="Email address"/>
-                                <Input type="phone" placeholder="Phone Number"/>
+                                <Input type="text"
+                                       value={formData.name}
+                                       onChange={handleChange}
+                                       name={"name"} placeholder="Имя"/>
+                                <Input type="text" name={"lastName"}
+                                       value={formData.lastName}
+                                       onChange={handleChange}
+                                       placeholder="Фамилия"/>
+                                <Input type="email"
+                                       value={formData.email}
+                                       onChange={handleChange}
+                                       name={"email"} placeholder="Почта"/>
+                                <Input type="phone" name={"phone"}
+                                       value={formData.phone}
+                                       onChange={handleChange}
+                                       placeholder="Телефон"/>
                             </div>
-                            <Textarea className="h-[200px]"
-                                      placeholder="Type your message here..."
+                            <Textarea className="h-[200px]" name={"message"}
+                                      value={formData.message}
+                                      onChange={handleChange}
+                                      placeholder="Здесь вы можете оставить сообщение..."
                             />
-                            <Button size="md" className="max-w-40 text-white/90">Send message</Button>
+                            <Button size="md" className="max-w-40 text-white/90" type={"submit"}>Отправить</Button>
                         </form>
                     </div>
                     <div className="flex-1 flex items-center xl:justify-end
@@ -76,6 +128,7 @@ const Contact = () => {
                         </ul>
                     </div>
                 </div>
+                {status && <p>{status}</p>}
             </div>
         </motion.section>
     )

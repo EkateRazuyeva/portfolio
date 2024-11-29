@@ -7,11 +7,11 @@ export default function Home() {
     return (
         <section className="h-full">
             <div className="container mx-auto h-full">
-                <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+                <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-4 xl:pt-2">
                     <div className="text-center xl:text-left order-2 xl:order-none mt-6">
                         <span className="text-center xl:text-left">Front-End Developer</span>
                         <h1 className={"h1 mb-6"}>
-                            Hello I&#39;m <br/><span className="text-accent">Ekaterina Razuyeva</span>
+                            Привет! Я <br/><span className="text-accent">Разуева Екатерина</span>
                         </h1>
                         <p className="w-full max-w-[490px] mb-9 text-white/80 text-justify">
                             Мой путь в IT только начинается, и я ищу возможности, чтобы работать в команде
@@ -23,7 +23,7 @@ export default function Home() {
                                     size="lg"
                                     className="uppercase flex items-center gap-8"
                             >
-                                <span className="text-[17px]"> Download CV</span>
+                                <span className="text-[17px]"> Скачать CV</span>
                                 <FiDownload className="text-2xl"/>
                             </Button>
                             <div className="mb-8 xl-mb-8 ">
@@ -35,7 +35,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="order-1 xl:order-none mb-8 xl:mb-0">
+                    <div className="order-1 xl:order-none mb-8 xl:mb-2">
                         <Photo/>
                     </div>
                 </div>

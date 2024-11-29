@@ -1,6 +1,6 @@
 "use client"
 
-import {FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaSass} from "react-icons/fa";
+import {FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaSass} from "react-icons/fa";
 import {SiTailwindcss, SiNextdotjs, SiStorybook, SiTypescript, SiRadixui, SiRedux} from "react-icons/si";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
@@ -8,31 +8,31 @@ import {ScrollArea} from "@/components/ui/scroll-area";
 import {motion} from "framer-motion";
 
 const about = {
-    title: "About me",
+    title: "Обо мне",
     description: "Я — начинающая разработчица, прошла обучение в IT-incubator, где изучала основы программирования и веб-разработки. Мой путь в IT начался с того, что я захотела работать в сфере, где всегда есть новые вызовы и возможности для роста. До этого я работала в государственной энергетической отрасли, где научилась высокой ответственности и умению работать в условиях многозадачности. Однако со временем я почувствовала, что мне не хватает динамики и развития. Я решила перейти в IT, чтобы постоянно учиться и развиваться. Сейчас создаю небольшие проекты и радуюсь каждому новому шагу в своей трансформации. Ищу первую работу в IT, где смогу применить свои знания, работать в команде и расти профессионально.",
     info: [
         {
-            fieldName: "Name",
-            fieldValue: "Ekaterina"
+            fieldName: "Имя",
+            fieldValue: "Екатерина"
         },
         {
-            fieldName: "Lastname",
-            fieldValue: "Razuyeva"
+            fieldName: "Фамилия",
+            fieldValue: "Разуева"
         },
         {
-            fieldName: "Phone",
+            fieldName: "Телефон",
             fieldValue: "+375-33-610-39-69"
         },
         {
-            fieldName: "Experience",
+            fieldName: "Опыт",
             fieldValue: "0+"
         },
         {
-            fieldName: "Languages",
+            fieldName: "Языки",
             fieldValue: "English (B1), Spanish (C1) "
         },
         {
-            fieldName: "Email",
+            fieldName: "Почта",
             fieldValue: "25ekatemars08@gmail.com"
         },
 
@@ -41,12 +41,12 @@ const about = {
 
 const education = {
     icon: '/assets/resume/cap.svg',
-    title: 'My education',
+    title: 'Моё образование',
     description: "Образование — это основа для профессионального роста, и я всегда стремлюсь развивать свои навыки в области веб-разработки. Я прошла обучение в нескольких учебных заведениях и программах, которые помогли мне освоить необходимые для Front-End разработки технологии.",
     items: [
         {
             institution: "БНТУ",
-            degree: "экономист-энергетик",
+            degree: "инженер-экономист (энергетика)",
             duration: "2015-2020"
         },
         {
@@ -65,7 +65,7 @@ const education = {
 }
 
 const skills = {
-    title: "My skills",
+    title: "Мои навыки",
     description: "Я активно развиваю свои навыки в области Front-End разработки, постоянно осваиваю новые подходы и методы, чтобы создавать чистый, функциональный и удобный код, который будет отвечать современным требованиям веб-разработки.",
     skillList: [
         {
@@ -97,13 +97,14 @@ const skills = {
             name: "node.js",
         },
         {
-            icon: <SiStorybook/>,
-            name: "Storybook",
-        },
-        {
             icon: <SiTypescript/>,
             name: "Typescript",
         },
+        {
+            icon: <SiStorybook/>,
+            name: "Storybook",
+        },
+
         {
             icon: <SiRadixui/>,
             name: "Radixui",
@@ -114,7 +115,7 @@ const skills = {
         },
         {
             icon: <SiRedux/>,
-            name: "Redux",
+            name: "Redux, Redux toolkit, RTK query",
         },
     ]
 }
@@ -134,9 +135,9 @@ const Resume = () => {
             <Tabs defaultValue="education"
                   className="flex flex-col xl:flex-row gap-[60px]">
                 <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-                    <TabsTrigger value="education">Education</TabsTrigger>
-                    <TabsTrigger value="skills">Skills</TabsTrigger>
-                    <TabsTrigger value="about">About me</TabsTrigger>
+                    <TabsTrigger value="education">Образование</TabsTrigger>
+                    <TabsTrigger value="skills">Навыки</TabsTrigger>
+                    <TabsTrigger value="about">Обо мне</TabsTrigger>
                 </TabsList>
                 <div className="min-h-[70vh] w-full">
                     <TabsContent value="education" className="w-full">
@@ -178,26 +179,28 @@ const Resume = () => {
                                     {skills.description}
                                 </p>
                             </div>
-                            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                                {skills.skillList.map((skill, index) => {
-                                    return <li key={index}>
-                                        <TooltipProvider delayDuration={100}>
-                                            <Tooltip>
-                                                <TooltipTrigger className="w-full h-[150px] bg-[#232329]
+                            <ScrollArea className="h-[400px]">
+                                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                                    {skills.skillList.map((skill, index) => {
+                                        return <li key={index}>
+                                            <TooltipProvider delayDuration={100}>
+                                                <Tooltip>
+                                                    <TooltipTrigger className="w-full h-[150px] bg-[#232329]
                                                 rounded-xl flex justify-center items-center group">
-                                                    <div className="text-6xl group-hover:text-accent
+                                                        <div className="text-6xl group-hover:text-accent
                                                     transition-all duration-300">
-                                                        {skill.icon}
-                                                    </div>
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p className="capitalize">{skill.name}</p>
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
-                                    </li>
-                                })}
-                            </ul>
+                                                            {skill.icon}
+                                                        </div>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p className="capitalize">{skill.name}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                        </li>
+                                    })}
+                                </ul>
+                            </ScrollArea>
                         </div>
                     </TabsContent>
 
@@ -211,8 +214,8 @@ const Resume = () => {
                                         <li key={index}
                                             className="flex items-center justify-center xl:justify-start gap-4"
                                         >
-                                            <span className="text-white/60">{item.fieldName}</span>
-                                            <span className="text-xl">{item.fieldValue}</span>
+                                            <span className="text-white/60 w-[100px]">{item.fieldName}</span>
+                                            <span className="text-xl w-[300px]">{item.fieldValue}</span>
                                         </li>
                                     )
                                 })}

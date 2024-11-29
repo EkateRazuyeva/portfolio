@@ -24,7 +24,7 @@ const Photo = () => {
                            priority
                            quality={100}
                            fill
-                           className="object-contain p-14"
+                           className="object-contain p-[26px] brightness-[0.65]"
                     />
                 </motion.div>
 
